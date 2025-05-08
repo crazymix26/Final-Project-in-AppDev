@@ -137,4 +137,21 @@ npm install apexcharts react-apexcharts
 npm install @shadcn/ui
 ```
 
+## 👥 Contributors
+
+| Name                   | GitHub Username                                  | Role                                          |
+| -----------------------| ------------------------------------------------ | ----------------------------------------------|
+| Mary Joy Anonuevo      | [@mjoyxx](https://github.com/mjoyxx)             | Login Page, Authenthication Logic             |
+| Lili Irena             | [@LiliIrena-27](https://github.com/LiliIrena-27) | User management , fetch and display user data |
+| Joshua Catipon         | [@boss0wa](https://github.com/boss0wa)           | Dashboard page, ApexChart Integration         |
+| Reyneil Rodelas        | [@crazymix26](https://github.com/crazymix26)     | Registration, Api Connection, Zod             |
+                                                                              validation, Ui layout using SchadCN and       |
+                                                                              TailWind, Mapbox setup,                       |
+                                                                              and All other Componnents                     |
+
+
+## Vercel Link:
+https://final-project-in-app-dev.vercel.app/
+
+
 
