@@ -34,12 +34,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-white p-6">
-      <div className="bg-gray-800 shadow-lg rounded-lg p-8 max-w-md w-full">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-blue-900 to-black">
+      <div className="bg-blue-950 shadow-lg rounded-lg p-8 max-w-md w-full text-white"> 
         <h1 className="text-3xl font-extrabold text-center mb-6 drop-shadow-lg">Login</h1>
         <input
           type="email"
-          placeholder="Email"
+          placeholder="User or Admin"
           className="bg-gray-700 text-white border border-gray-600 rounded p-3 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={email}
           onChange={(e) => setEmail(e.target.value)}

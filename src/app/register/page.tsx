@@ -121,7 +121,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-white p-6 min-h-screen">
+    <div className="bg-gradient-to-b from-blue-900 to-black text-white p-6 min-h-screen">
       <div className="max-w-xl mx-auto py-10">
         <h2 className="text-2xl font-semibold mb-6">User Registration</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">

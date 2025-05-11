@@ -1,50 +1,28 @@
 // src/app/page.tsx
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white p-6">
-      <Card className="bg-black bg-opacity-10 backdrop-blur-md rounded-2xl shadow-2xl p-10 max-w-lg w-full">
-        <CardHeader>
-          <CardTitle className="text-4xl font-extrabold text-center mb-6 drop-shadow-lg">
-            Welcome 👋
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-center text-lg mb-10 text-gray-100">
-            Dynamic-Web-Application - Explore users, posts, and more!
+    <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white">
+      {/* Hero Section */}
+      <section className="w-full h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-blue-900 to-black">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-5xl font-extrabold text-white mb-4">
+            Turning bold ideas into real-world impact <span className="text-blue-400">---One Startup at a Time.</span>
+          </h1>
+          <p className="text-lg text-gray-300 mb-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <div className="flex flex-col gap-4">
-            <Link href="/login">
-              <Button className="w-full bg-white text-indigo-600 hover:bg-gray-100">
-                Login
-              </Button>
-            </Link>
-            <Link href="/register">
-              <Button className="w-full bg-white text-indigo-600 hover:bg-gray-100">
-                Register
-              </Button>
-            </Link>
-            <Link href="/users">
-              <Button className="w-full bg-white text-indigo-600 hover:bg-gray-100">
-                View Users
-              </Button>
-            </Link>
-            <Link href="/posts">
-              <Button className="w-full bg-white text-indigo-600 hover:bg-gray-100">
-                View Posts
-              </Button>
-            </Link>
-            <Link href="/dashboard">
-              <Button className="w-full bg-white text-indigo-600 hover:bg-gray-100">
-                Dashboard
-              </Button>
-            </Link>
-          </div>
-        </CardContent>
-      </Card>
+          <Link href="/login">
+            <Button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg">
+              Let&#39;s Get Started →
+            </Button>
+          </Link>
+        </div>
+      
+      </section>
     </main>
   );
 }

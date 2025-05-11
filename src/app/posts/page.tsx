@@ -42,7 +42,7 @@ export default function PostsPage() {
   }
 
   return (
-    <div className="p-4 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 min-h-screen "> {/* Updated background color */}
+    <div className="p-4 bg-gradient-to-b from-blue-900 to-black min-h-screen "> {/* Updated background color */}
       {/* Welcome Message */}
       <div className="mb-6 p-4 bg-blue-100 text-blue-800 rounded shadow-md">
         <h1 className="text-2xl font-bold">Welcome Admin! You have full access to all posts.</h1>

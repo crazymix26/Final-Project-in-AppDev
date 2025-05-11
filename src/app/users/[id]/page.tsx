@@ -51,35 +51,42 @@ export default function UserProfile() {
     }
   }, [data]);
 
-  if (isLoading) return <p className="text-center p-10">Loading user data...</p>;
+  if (isLoading) return <p className="text-center p-10 text-2xl font-bold">Loading user data...</p>;
 
-  if (isError) return <p className="text-center p-10 text-red-500">Failed to load user data.</p>;
+  if (isError) return <p className="text-center p-10 text-red-500 text-2xl font-bold">Failed to load user data.</p>;
 
   return (
-   <Card className="max-w-md mx-auto">
-  <CardHeader>
-    <CardTitle>{data?.name}</CardTitle>
-    <p className="text-sm text-muted-foreground">@{data?.username}</p>
-  </CardHeader>
-  <CardContent>
-    <div className="space-y-4">
-      <p>
-        Email: <Button variant="link" asChild>
-          <a href={`mailto:${data?.email}`}>{data?.email}</a>
-        </Button>
-      </p>
-      <p>Phone: {data?.phone}</p>
-      <div>
-        <h3 className="text-lg font-semibold">Address:</h3>
-        <p>{data?.address.street}, {data?.address.suite}</p>
-        <p>{data?.address.city}, {data?.address.zipcode}</p>
+    <main className="max-h-screen bg-gradient-to-b from-blue-900 to-black text-white p-6">
+    <Card className="max-w-3xl mx-auto p-10 bg-gradient-to-br from-gray-800 to-gray-900 text-white shadow-2xl rounded-lg">
+      <CardHeader>
+        <CardTitle className="text-4xl font-extrabold mb-4">{data?.name}</CardTitle>
+        <p className="text-xl text-white">@{data?.username}</p>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-6">
+          <p className="text-lg">
+            <span className="font-semibold">Email:</span>{' '}
+            <Button variant="link" asChild>
+              <a href={`mailto:${data?.email}`} className="text-white hover:underline">
+                {data?.email}
+              </a>
+            </Button>
+          </p>
+          <p className="text-lg">
+            <span className="font-semibold">Phone:</span> {data?.phone}
+          </p>
+          <div>
+            <h3 className="text-2xl font-semibold mb-2">Address:</h3>
+            <p className="text-lg">{data?.address.street}, {data?.address.suite}</p>
+            <p className="text-lg">{data?.address.city}, {data?.address.zipcode}</p>
+          </div>
+        </div>
+      </CardContent>
+      <div className="h-80 relative overflow-hidden rounded-md mt-8 shadow-lg">
+        <div ref={mapContainer} className="absolute inset-0" />
       </div>
-    </div>
-  </CardContent>
-  <div className="h-48 relative overflow-hidden rounded-md">
-    <div ref={mapContainer} className="absolute inset-0" />
-  </div>
-</Card>
+    </Card>
+    </main>
   );
 }
 
