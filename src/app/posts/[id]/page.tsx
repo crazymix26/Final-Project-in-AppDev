@@ -46,6 +46,7 @@ export default function PostDetail() {
   if (loadingPost || loadingComments || loadingUser) return <div className="text-center text-gray-500">Loading...</div>;
 
   return (
+    <main className=" bg-gradient-to-b from-blue-900 to-black text-white">
     <div className="p-6 max-w-4xl mx-auto">
       {/* Welcome message */}
       <div className="mb-8 p-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg shadow-lg flex justify-between items-center">
@@ -97,5 +98,6 @@ export default function PostDetail() {
         </Card>
       ))}
     </div>
+    </main>
   );
 }
