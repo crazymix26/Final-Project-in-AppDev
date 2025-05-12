@@ -71,6 +71,12 @@ export default function LoginPage() {
         {isAdmin && (
           <p className="text-green-400 text-center mt-4">Welcome, Admin!</p>
         )}
+        <p className="text-center mt-4 text-sm text-gray-300">
+        Don&#39;t have an account?{' '}
+        <a href="/register" className="text-blue-400 hover:underline">
+          Register here
+        </a>
+      </p>
       </div>
     </div>
   );
