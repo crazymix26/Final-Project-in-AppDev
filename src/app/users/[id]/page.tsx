@@ -1,7 +1,7 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation'; // Import useRouter from next/navigation
 import mapboxgl from 'mapbox-gl';
 import { useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -25,6 +25,7 @@ type User = {
 
 export default function UserProfile() {
   const { id } = useParams();
+  const router = useRouter(); // Initialize the router
   const mapContainer = useRef<HTMLDivElement>(null);
 
   const { data, isLoading, isError } = useQuery<User>({
@@ -57,36 +58,43 @@ export default function UserProfile() {
 
   return (
     <main className="max-h-screen bg-gradient-to-b from-blue-900 to-black text-white p-6">
-    <Card className="max-w-3xl mx-auto p-10 bg-gradient-to-br from-gray-800 to-gray-900 text-white shadow-2xl rounded-lg">
-      <CardHeader>
-        <CardTitle className="text-4xl font-extrabold mb-4">{data?.name}</CardTitle>
-        <p className="text-xl text-white">@{data?.username}</p>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-6">
-          <p className="text-lg">
-            <span className="font-semibold">Email:</span>{' '}
-            <Button variant="link" asChild>
-              <a href={`mailto:${data?.email}`} className="text-white hover:underline">
-                {data?.email}
-              </a>
-            </Button>
-          </p>
-          <p className="text-lg">
-            <span className="font-semibold">Phone:</span> {data?.phone}
-          </p>
+      <Card className="max-w-3xl mx-auto p-10 bg-gradient-to-br from-gray-800 to-gray-900 text-white shadow-2xl rounded-lg">
+        <CardHeader className="flex justify-between items-center"> {/* Flex container for header */}
           <div>
-            <h3 className="text-2xl font-semibold mb-2">Address:</h3>
-            <p className="text-lg">{data?.address.street}, {data?.address.suite}</p>
-            <p className="text-lg">{data?.address.city}, {data?.address.zipcode}</p>
+            <CardTitle className="text-4xl font-extrabold mb-2">{data?.name}</CardTitle>
+            <p className="text-xl text-white">@{data?.username}</p>
           </div>
+          <Button
+            onClick={() => router.push('/users')}
+            className="ml-4 px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-700 transition-colors"
+          >
+            Back to Users
+          </Button>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-6">
+            <p className="text-lg">
+              <span className="font-semibold">Email:</span>{' '}
+              <Button variant="link" asChild>
+                <a href={`mailto:${data?.email}`} className="text-white hover:underline">
+                  {data?.email}
+                </a>
+              </Button>
+            </p>
+            <p className="text-lg">
+              <span className="font-semibold">Phone:</span> {data?.phone}
+            </p>
+            <div>
+              <h3 className="text-2xl font-semibold mb-2">Address:</h3>
+              <p className="text-lg">{data?.address.street}, {data?.address.suite}</p>
+              <p className="text-lg">{data?.address.city}, {data?.address.zipcode}</p>
+            </div>
+          </div>
+        </CardContent>
+        <div className="h-80 relative overflow-hidden rounded-md mt-8 shadow-lg">
+          <div ref={mapContainer} className="absolute inset-0" />
         </div>
-      </CardContent>
-      <div className="h-80 relative overflow-hidden rounded-md mt-8 shadow-lg">
-        <div ref={mapContainer} className="absolute inset-0" />
-      </div>
-    </Card>
+      </Card>
     </main>
   );
 }
-
